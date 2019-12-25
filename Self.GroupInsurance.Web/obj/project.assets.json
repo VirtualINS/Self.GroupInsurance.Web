@@ -12948,11 +12948,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Self\\AZ203\\GroupInsurance\\Codebase\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web.csproj",
+      "projectUniqueName": "C:\\Self\\AZ203\\VirtualINS\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web.csproj",
       "projectName": "Self.GroupInsurance.Web",
-      "projectPath": "C:\\Self\\AZ203\\GroupInsurance\\Codebase\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web.csproj",
+      "projectPath": "C:\\Self\\AZ203\\VirtualINS\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web.csproj",
       "packagesPath": "C:\\Users\\chakanc\\.nuget\\packages\\",
-      "outputPath": "C:\\Self\\AZ203\\GroupInsurance\\Codebase\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web\\obj\\",
+      "outputPath": "C:\\Self\\AZ203\\VirtualINS\\Self.GroupInsurance.Web\\Self.GroupInsurance.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

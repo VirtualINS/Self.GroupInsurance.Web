@@ -6,12 +6,22 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using Self.GroupInsurance.Web.Models;
+using Microsoft.Extensions.Options;
 
 namespace Self.GroupInsurance.Web.Controllers
 {
     public class EmployeeController : Controller
     {
         string uri = "http://localhost:55105/api/Employee/";
+
+        //private readonly IOptions<AppConfig> config;
+
+        public EmployeeController(IOptions<AppConfig> config)
+        {
+            //this.config = config;
+            this.uri = config.Value.URI;
+        }
+
         // GET: Employee
         public ActionResult Index()
         {
