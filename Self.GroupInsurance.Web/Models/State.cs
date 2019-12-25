@@ -7,8 +7,10 @@ namespace Self.GroupInsurance.Web.Models
 {
     public class State
     {
-        public string StateId;
+        public string ID { get; set; }
 
-        public string StateName;
+        public string StateName { get; set; }
+
+        public string Country { get; set; }
     }
 }

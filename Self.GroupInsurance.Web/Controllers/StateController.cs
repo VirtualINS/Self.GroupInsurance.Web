@@ -1,56 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
-using Self.GroupInsurance.Web.Models;
 using Microsoft.Extensions.Options;
+using Self.GroupInsurance.Web.Models;
 
 namespace Self.GroupInsurance.Web.Controllers
 {
-    public class EmployeeController : Controller
+    public class StateController : Controller
     {
         string uri = "http://localhost:55105/api/";
 
-        public EmployeeController(IOptions<AppConfig> config)
+        public StateController(IOptions<AppConfig> config)
         {
             //this.config = config;
             this.uri = config.Value.URI;
         }
 
-        // GET: Employee
+        // GET: State
         public ActionResult Index()
         {
-            List<Employee> employees = new List<Employee>();
+            List<State> states = new List<State>();
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(uri+"Employee/");
-                var responseTask = client.GetAsync("GetEmployees");
+                client.BaseAddress = new Uri(uri+"State/");
+                var responseTask = client.GetAsync("GetStates");
                 var result = responseTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    var emps = result.Content.ReadAsStringAsync();
-                    employees = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Employee>>(emps.Result);
+                    var sts = result.Content.ReadAsStringAsync();
+                    states = Newtonsoft.Json.JsonConvert.DeserializeObject<List<State>>(sts.Result);
                 }
             }
-            return View("Employees",employees);
+            return View("States", states);
         }
 
-        // GET: Employee/Details/5
+        // GET: State/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: Employee/Create
+        // GET: State/Create
         public ActionResult Create()
         {
-            return View("AddEmployee");
+            return View("AddState");
         }
 
-        // POST: Employee/Create
+        // POST: State/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -60,15 +60,19 @@ namespace Self.GroupInsurance.Web.Controllers
                 // TODO: Add insert logic here
                 using (var client = new HttpClient())
                 {
-                    Employee emp = new Employee() { ID = collection["ID"], FirstName = collection["FirstName"],
-                        LastName = collection["LastName"], Age = Convert.ToInt16(collection["Age"]) };
-                    client.BaseAddress = new Uri(uri + "Employee/");
-                    var responseTask = client.PostAsJsonAsync<Employee>("AddEmployee", emp);
+                    State state= new State()
+                    {
+                        ID = collection["ID"],
+                        StateName = collection["StateName"],
+                        Country = collection["Country"]
+                    };
+                    client.BaseAddress = new Uri(uri+"State/");
+                    var responseTask = client.PostAsJsonAsync<State>("AddState", state);
                     var result = responseTask.Result;
                     if (result.IsSuccessStatusCode)
                     {
-                        var readTask = result.Content.ReadAsAsync<Employee>();
-                        var employeeID = readTask.Result;
+                        var readTask = result.Content.ReadAsAsync<State>();
+                        var stateID = readTask.Result;
                     }
                 }
                 return RedirectToAction("Index");
@@ -79,13 +83,13 @@ namespace Self.GroupInsurance.Web.Controllers
             }
         }
 
-        // GET: Employee/Edit/5
+        // GET: State/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Employee/Edit/5
+        // POST: State/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -102,13 +106,13 @@ namespace Self.GroupInsurance.Web.Controllers
             }
         }
 
-        // GET: Employee/Delete/5
+        // GET: State/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Employee/Delete/5
+        // POST: State/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

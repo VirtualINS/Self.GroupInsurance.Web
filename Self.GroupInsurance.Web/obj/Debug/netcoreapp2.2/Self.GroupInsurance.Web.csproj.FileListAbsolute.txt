@@ -62,3 +62,5 @@ C:\Self\AZ203\VirtualINS\Self.GroupInsurance.Web\Self.GroupInsurance.Web\obj\Deb
 C:\Self\AZ203\VirtualINS\Self.GroupInsurance.Web\Self.GroupInsurance.Web\obj\Debug\netcoreapp2.2\Self.GroupInsurance.Web.dll
 C:\Self\AZ203\VirtualINS\Self.GroupInsurance.Web\Self.GroupInsurance.Web\obj\Debug\netcoreapp2.2\Self.GroupInsurance.Web.pdb
 C:\Self\AZ203\VirtualINS\Self.GroupInsurance.Web\Self.GroupInsurance.Web\obj\Debug\netcoreapp2.2\Self.GroupInsurance.Web.csproj.CopyComplete
+C:\Self\AZ203\VirtualINS\Self.GroupInsurance.Web\Self.GroupInsurance.Web\obj\Debug\netcoreapp2.2\Razor\Views\State\States.g.cshtml.cs
+C:\Self\AZ203\VirtualINS\Self.GroupInsurance.Web\Self.GroupInsurance.Web\obj\Debug\netcoreapp2.2\Razor\Views\State\AddState.g.cshtml.cs
